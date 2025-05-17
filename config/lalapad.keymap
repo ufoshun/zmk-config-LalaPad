@@ -14,6 +14,31 @@
 #define MOUSE_L_LAYER   6
 #define SCROLL_L_LAYER  7
 
+// OS設定を日本語キーボードのまま使用するための変換定義
+#define JP_DQUOTE       AT                // "
+#define JP_AMPERSAND    CARET             // &
+#define JP_QUOTE        AMPERSAND         // '
+#define JP_EQUAL        UNDER             // =
+#define JP_CARET        EQUAL             // ^
+#define JP_YEN          0x89              // ¥
+#define JP_PLUS         COLON             // +
+#define JP_TILDE        PLUS              // ~
+#define JP_PIPE         LS(0x89)          // |
+#define JP_AT           LEFT_BRACKET      // @
+#define JP_COLON        SINGLE_QUOTE      // :
+#define JP_ASTERISK     DOUBLE_QUOTES     // *
+#define JP_BACKQUOTE    LEFT_BRACE        // `
+#define JP_UNDERSCORE   LS(0x87)          // _
+#define JP_LBRACKET     RIGHT_BRACKET     // [
+#define JP_RBRACKET     BACKSLASH         // ]
+#define JP_LPAREN       ASTERISK          // (
+#define JP_RPAREN       LEFT_PARENTHESIS  // )
+#define JP_LBRACE       RIGHT_BRACE       // {
+#define JP_RBRACE       PIPE              // }
+#define JP_KANA         LANGUAGE_1        // かな
+#define JP_EISU         LANGUAGE_2        // 英数
+#define JP_HANZEN       GRAVE             // 半角/全角
+
 // Mouse Scroll Value
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
@@ -179,9 +204,9 @@
             sensor-bindings = <&scroll_down_up>,<&scroll_up_down>;
             bindings = <
 &kp ESC    &kp Q         &kp W         &kp E      &kp R        &kp T  &kp Y      &kp U    &kp I      &kp O       &kp P      &mt EQUAL MINUS
-&kp TAB    &kp A         &kp S         &kp D      &kp F        &kp G  &kp H      &kp J    &kp K      &kp L       &mt2 SEMI LBKT &mt2 SQT RBKT
+&kp TAB    &kp A         &kp S         &kp D      &kp F        &kp G  &kp H      &kp J    &kp K      &kp L       &mt2 SEMI JP_RBRACKET &mt2 SQT JP_LBRACKET
 &kp LSHFT  &kp Z         &kp X         &kp C      &kp V        &kp B  &kp N      &kp M    &kp COMMA  &kp PERIOD  &mt2 UP SLASH  &kp BSLH
-&kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &kp BACKSPACE  &mo SECONDARY_LAYER &lt TERTIARY_LAYER LANG2 &lt SYSTEM_LAYER LANG1 &kp SPACE &kp RET &kp LEFT &kp DOWN &kp RIGHT
+&kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &kp BACKSPACE  &lt SECONDARY_LAYER SPACE &lt TERTIARY_LAYER LANG2 &lt SYSTEM_LAYER LANG1 &kp SPACE &kp RET &kp LEFT &kp DOWN &kp RIGHT
                          &allow_end &allow_pagedown &allow_home &allow_pageup    &allow_pageup &allow_home &allow_pagedown &allow_end
             >;
         };
@@ -190,8 +215,8 @@
             display-name = "secondary_layer";
             sensor-bindings = <&scroll_left_right>,<&scroll_left_right>;
             bindings = <
-&kp CARET  &kp NUMBER_1    &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4   &kp NUMBER_5   &kp PAGE_UP     &kp PRINTSCREEN  &kp KP_SLASH     &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9
-&kp COLON  &kp NUMBER_6    &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9   &kp NUMBER_0   &kp HOME        &kp END          &kp KP_ASTERISK  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6
+&kp EQUAL  &kp NUMBER_1    &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4   &kp NUMBER_5   &kp PAGE_UP     &kp PRINTSCREEN  &kp KP_SLASH     &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9
+&kp JP_COLON  &kp NUMBER_6    &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9   &kp NUMBER_0   &kp HOME        &kp END          &kp KP_ASTERISK  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6
 &trans     &trans              &trans            &trans            &trans            &trans         &kp PAGE_DOWN   &kp KP_MINUS     &kp KP_PLUS      &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3
 &trans     &trans              &trans            &kp DELETE        &trans            &kp CAPS           &trans &trans  &trans        &kp KP_NUMBER_0  &dot_comma       &kp KP_ENTER
 &trans     &trans              &trans            &trans                                                                     &trans        &trans           &trans           &trans
